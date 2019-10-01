@@ -8,12 +8,29 @@ class App extends Component {
     userSession : new UserSession({appConfig})
   }
 
+  componentDidMount = async ()=>{
+    const { userSession } = this.state
+    if(!userSession.isUserSignedIn() && userSession.isSignInPending()){
+      const userData = await userSession.handlePendingSignIn()
+
+      if(!userData.username){
+        throw new Error('This App Require a Username !')
+      }
+
+      window.location = '/'
+
+      console.log(userData)
+    }
+  }
+
   handleSignOut = ()=>{
-    console.log('Signout')
+    const { userSession } = this.state
+    userSession.signUserOut()
+    window.location = '/'
+
   }
 
   handleSignIn = ()=>{
-    console.log('Sign in')
     const { userSession } = this.state
     userSession.redirectToSignIn()
   }
