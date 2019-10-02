@@ -2,7 +2,10 @@ import React,{Component} from 'react';
 import './stylesheet/main.scss';
 import { appConfig } from './utils/constants'
 import { UserSession } from 'blockstack'
-import { Button } from 'react-bulma-components'
+import { Button,Container } from 'react-bulma-components'
+import Login from './component/Login'
+import Logout from './component/Logout'
+
 class App extends Component {
   state = {
     userSession : new UserSession({appConfig})
@@ -23,33 +26,20 @@ class App extends Component {
     }
   }
 
-  handleSignOut = ()=>{
-    const { userSession } = this.state
-    userSession.signUserOut()
-    window.location = '/'
 
-  }
-
-  handleSignIn = ()=>{
-    const { userSession } = this.state
-    userSession.redirectToSignIn()
-  }
 render(){
   const { userSession } = this.state
 
   return (
       <div className="App">
+      <Container>
       {
         userSession.isUserSignedIn() ?
-        <Button color="primary" onClick={this.handleSignOut}>
-          Signout
-        </Button>
+        <Logout userSession={userSession} />
         :
-        <Button color="primary" onClick={this.handleSignIn}>
-          Sign In
-        </Button>
+        <Login userSession={userSession} />
       }
-
+</Container>
       </div>
     )
   }
