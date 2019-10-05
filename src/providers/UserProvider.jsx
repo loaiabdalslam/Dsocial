@@ -5,7 +5,7 @@ export const MyContext = React.createContext()
 
 class UserProvider extends Component {
 
-    constructor() {
+    constructor(props) {
         super(props)
 
 
@@ -33,7 +33,7 @@ class UserProvider extends Component {
 
             }}>
                 {this.props.children}
-            </MyContext>
+            </MyContext.Provider>
 
         )
     }
