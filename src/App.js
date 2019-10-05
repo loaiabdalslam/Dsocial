@@ -5,6 +5,7 @@ import { UserSession } from 'blockstack'
 import { Button,Container } from 'react-bulma-components'
 import Login from './component/Login'
 import Logout from './component/Logout'
+import NavbarTop from './component/Navbar';
 
 class App extends Component {
   state = {
@@ -32,14 +33,16 @@ render(){
 
   return (
       <div className="App">
-      <Container>
+
+      <NavbarTop />
+
       {
         userSession.isUserSignedIn() ?
-        <Logout userSession={userSession} />
-        :
+        '':
+        <Container>
         <Login userSession={userSession} />
+        </Container>
       }
-</Container>
       </div>
     )
   }

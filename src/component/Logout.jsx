@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { Button,Card } from 'react-bulma-components'
+import { Button } from 'react-bulma-components'
 class Logout extends Component {
 
   handleSignOut = ()=>{
@@ -10,16 +10,13 @@ class Logout extends Component {
   }
 
   render(){
-    return(
-      <Card>
-        <Card.Content>
 
-        <Button color="primary" onClick={this.handleSignOut}>
+    return(
+
+        <Button color="info" onClick={this.handleSignOut}>
             SignOut
         </Button>
 
-        </Card.Content>
-      </Card>
     )
   }
 

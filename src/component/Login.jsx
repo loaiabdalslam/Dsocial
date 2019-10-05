@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { Button,Card } from 'react-bulma-components'
+import { Button } from 'react-bulma-components'
 class Login extends Component {
   state = {
     loading:false
@@ -17,16 +17,15 @@ class Login extends Component {
     const { loading } = this.state
     console.log(loading)
     return(
-      <Card>
-        <Card.Content>
-        {
-          loading ? <div> Loading ... </div>
-          : <Button color="primary" onClick={this.handleSignIn}>
+      <div>
+          {
+            loading ? <div> Loading ... </div>
+          : <Button color="info" onClick={this.handleSignIn}>
             SignIn by Blockstack
           </Button>
         }
-        </Card.Content>
-      </Card>
+        </div>
+        
     )
   }
 
