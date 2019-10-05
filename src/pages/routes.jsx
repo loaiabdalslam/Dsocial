@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { Button } from 'react-bulma-components'
 import {Switch,Route,Redirect} from 'react-router-dom'
 import UserProvider from '../providers/UserProvider';
+import ProfileRoute from './admin/profile'
 import _ from 'lodash'
 class Rotues extends Component {
 
@@ -32,11 +33,9 @@ render={()=><div>Root Route</div>}>
 <Route
 exact 
 path="/admin/:username"
-render={({match})=><div>Hello {match.params.username}</div>}>
+render={({match})=><ProfileRoute match={match}/>}>
 
 </Route>
-
-
 </Switch>
 </UserProvider> 
 
