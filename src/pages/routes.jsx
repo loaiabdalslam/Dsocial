@@ -23,6 +23,7 @@ componentDidMount() {
     return(
 <UserProvider userSession={userSession}>
 <Switch>
+
 <Route
 exact 
 path="/"
@@ -30,8 +31,7 @@ render={()=><div>Root Route</div>}>
 
 </Route>
 
-<Route
-exact 
+<Route 
 path="/admin/:username"
 render={({match})=><ProfileRoute match={match}/>}>
 
