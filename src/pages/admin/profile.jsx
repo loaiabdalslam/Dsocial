@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import {Switch,Route} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import AdminUsernamePostsRoutes from './posts/routes'
-
 class ProfileRoute extends Component {
 
     staticpropTypes = {

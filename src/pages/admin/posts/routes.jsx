@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Switch, Route,withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import AdminUserName from './create/AdminUserName'
+import AdminUserName from '../username/AdminUserName'
 import { MyContext } from '../../../providers/UserProvider'
+import AdminCreatePost from '../posts/create/index'
 
 class AdminUsernamePostsRoutes extends Component {
 
@@ -15,19 +16,21 @@ class AdminUsernamePostsRoutes extends Component {
     console.log(this.props.username)
     const username = this.props.username
     console.log('That From AdminUsernamePostsRoute as Username :', username)
+
+    console.log(this.props.match.url)
     return (
 
       <Switch>
 
         <Route
-          
+          exact
           path={`${this.props.match.url}`}
           render={() =>
             <AdminUserName username={username} />
           }
         />
         <Route
-
+          exact
           path={`${this.props.match.url}/create`}
           render={() => <div> Add posts from here </div>}
         />
@@ -40,7 +43,7 @@ class AdminUsernamePostsRoutes extends Component {
 
         <Route
 
-          path={`${this.props.match.url}/post_id/edit`}
+          path={`${this.props.match.url}/:post_id/edit`}
           render={() => <div>remove posts from here</div>}
         />
 

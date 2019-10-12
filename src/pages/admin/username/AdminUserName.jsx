@@ -15,8 +15,14 @@ class AdminUserName extends Component {
         username: PropTypes.string.isRequired
     }
 
+    handleCreatePost = ()=>{
+        const {history,username}=this.props
+        history.push(`/admin/${username}/posts/create`)
+    }
+
     render() {
-       const username = this.props.username
+       const {username} = this.props
+       
         return (
             <Card>
                 <Card.Content>
@@ -24,7 +30,7 @@ class AdminUserName extends Component {
                         <Heading>
                             Hello {username}
                         </Heading>
-                        <Button color="info" onClick={this.handleSignIn}>
+                        <Button color="info" onClick={this.handleCreatePost}>
                             Create Post
                         </Button>
 
