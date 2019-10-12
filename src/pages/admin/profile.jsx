@@ -21,7 +21,7 @@ class ProfileRoute extends Component {
         />
 
         <Route
-        exact
+        
         path={`${this.props.match.url}/posts`}
         render={({ match })=> <AdminUsernamePostsRoutes match={match} username={this.props.match.params.username}/>}
         />
