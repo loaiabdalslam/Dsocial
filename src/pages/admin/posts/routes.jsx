@@ -1,52 +1,58 @@
-import React,{Component} from 'react';
-import { Switch,Route } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Switch, Route,withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import AdminUserName from './create/AdminUserName'
+import { MyContext } from '../../../providers/UserProvider'
 
 class AdminUsernamePostsRoutes extends Component {
 
-    propTypes = {
-        match: PropTypes.object.isRequired
-    }
+  propTypes = {
+    match: PropTypes.object.isRequired,
+    username:PropTypes.string.isRequired
+  }
 
-  render(){
-    const { username } = this.props.match.params
-    console.log(this.props.match.url)
-    console.log(this.props.match)
-    return(
+  render() {
+    console.log(this.props.username)
+    const username = this.props.username
+    console.log('That From AdminUsernamePostsRoute as Username :', username)
+    return (
 
-    <Switch>
+      <Switch>
 
-          <Route
-           
+        <Route
+          
           path={`${this.props.match.url}`}
-          render={()=> <div> Add posts from here </div>}
-          />
+          render={() =>
+            <AdminUserName username={username} />
+          }
+        />
         <Route
-         
-        path={`${this.props.match.url}/create`}
-        render={()=> <div> Add posts from here </div>}
+
+          path={`${this.props.match.url}/create`}
+          render={() => <div> Add posts from here </div>}
         />
 
         <Route
-        
-        path={`${this.props.match.url}/:post_id`}
-        render={()=> <div>edit posts from here</div>}
+
+          path={`${this.props.match.url}/:post_id`}
+          render={() => <div>edit posts from here</div>}
         />
 
         <Route
-         
-        path={`${this.props.match.url}/post_id/edit`}
-        render={()=> <div>remove posts from here</div>}
+
+          path={`${this.props.match.url}/post_id/edit`}
+          render={() => <div>remove posts from here</div>}
         />
 
 
-  
-        
-    </Switch>
+
+
+      </Switch>
 
     )
   }
 
 }
 
-export default AdminUsernamePostsRoutes
+export default withRouter(AdminUsernamePostsRoutes)
+AdminUsernamePostsRoutes.contextType = MyContext
