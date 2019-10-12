@@ -32,7 +32,7 @@ class AdminUsernamePostsRoutes extends Component {
         <Route
           exact
           path={`${this.props.match.url}/create`}
-          render={() => <div> Add posts from here </div>}
+          render={() => <AdminCreatePost />}
         />
 
         <Route

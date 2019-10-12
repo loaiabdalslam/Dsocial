@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Switch, Route,withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { MyContext } from '../../../../providers/UserProvider'
-import PostForm from './form/index'
+import PostForm from '../../../../component/Form/index.jsx'
 class AdminCreatePost extends Component {
+
 
 
   render() {
